@@ -62,3 +62,18 @@ def rank_items(scores, similarities, target_user_index):
 # predict_score = predict(scores, similarities, target_user_index, target_item_index)
 #
 # rank = rank_items(scores, similarities, target_user_index)
+
+target_user_index_a = 0  # 0番目のユーザ
+similarities_a = get_correlation_coefficents(scores, target_user_index_a)
+rank_a = rank_items(scores, similarities_a, target_user_index_a)
+
+target_user_index_b = 1  # 1番目のユーザ
+similarities_b = get_correlation_coefficents(scores, target_user_index_b)
+rank_b = rank_items(scores, similarities_b, target_user_index_b)
+
+print("rank for user_a:")
+print(rank_a)
+print("rank for user_b:")
+print(rank_b)
+
+

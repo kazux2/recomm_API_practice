@@ -1,16 +1,15 @@
 from flask import Flask
-from redis import Redis
+from flask_restful import Resource, Api
+import controller
 
+# from redis import Redis
 
 app = Flask(__name__)
-redis = Redis(host='redis', port=6379)
+api = Api(app)
+# redis = Redis(host='redis', port=6379)
 
-
-@app.route('/')
-def hello():
-    redis.incr('hits')
-    return 'Hello World! I have been seen %s times.' % redis.get('hits')
-
+api.add_resource(controller.apiV0Main, '/api/v1/get/<user_id>')
+api.add_resource(apiV0Evaluation, '/api/v1/post')
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)
