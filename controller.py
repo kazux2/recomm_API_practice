@@ -18,10 +18,6 @@ class apiV0Evaluation(Resource):
 
 
 
-
-
-
-
 # from flask_restful import reqparse, Resource, Api
 #
 # def classproperty(func):
