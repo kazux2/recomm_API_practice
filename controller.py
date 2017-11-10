@@ -3,6 +3,12 @@ from flask_restful import Resource, Api
 import recomm
 import json
 
+# Create of CRUD
+class apiV0Add(Resource):
+    def post(self):
+        return {'hello world': 'post'}
+
+# Read of CRUD
 class apiV0All(Resource):
     def get(self):
         all_list = recomm.scores
@@ -17,6 +23,23 @@ class apiV0Main(Resource):
         suggestion = recomm.rank_items(recomm.scores, similarities, target_user_index)
         return {user_id: suggestion}
 
+# Update of CRUD
 class apiV0Evaluation(Resource):
-    def post(self):
+    def put(self, user_id, item_id, evaluation):
+
         return {'hello world': 'post'}
+
+# Delete of CRUD
+class apiV0Delete(Resource):
+    def delete(self):
+        return {'hello world': 'delete'}
+
+
+
+
+
+
+
+
+
+
