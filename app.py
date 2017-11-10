@@ -8,6 +8,7 @@ app = Flask(__name__)
 api = Api(app)
 # redis = Redis(host='redis', port=6379)
 
+api.add_resource(controller.apiV0All, '/api/v1/get/all')
 api.add_resource(controller.apiV0Main, '/api/v1/get/<user_id>')
 api.add_resource(controller.apiV0Evaluation, '/api/v1/post')
 

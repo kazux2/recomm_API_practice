@@ -9,10 +9,12 @@ def get_correlation_coefficents(scores, target_user_index):
     for i, score in enumerate(scores):
         # 共通の評価が少ない場合は除外
         indices = np.where(((target + 1) * (score + 1)) != 0)[0]
-        if len(indices) < 3 or i == target_user_index:
+
+        if len(indices) < 3 or i == target_user_index: #自分との比較は飛ばす
             continue
 
         similarity = np.corrcoef(target[indices], score[indices])[0, 1]
+
         if np.isnan(similarity):
             continue
 
@@ -55,10 +57,19 @@ def rank_items(scores, similarities, target_user_index):
 
     return sorted(rankings, key=lambda r: r[1], reverse=True)
 
-# target_user_index = 0  # 0番目のユーザ
+# target_user_index = 1  # 0番目のユーザ
 # similarities = get_correlation_coefficents(scores, target_user_index)
-#
+
 # target_item_index = 0  # 3番目のアイテム(エビ)
 # predict_score = predict(scores, similarities, target_user_index, target_item_index)
-#
+
 # rank = rank_items(scores, similarities, target_user_index)
+# np.save("user0recomm", rank)
+#
+# print(type(rank))
+# print(rank)
+#
+# result_json = {'result': rank}
+# print(type(result_json))
+# print(result_json)
+
