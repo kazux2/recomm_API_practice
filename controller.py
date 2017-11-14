@@ -4,6 +4,13 @@ import recomm
 import json
 import model
 
+# Reset the data
+class apiV0ResetData(Resource):
+    def put(self):
+        reset = model.reset()
+        return {'sushi data was': reset}
+
+
 # Create of CRUD
 class apiV0AddU(Resource):
     def post(self):
@@ -20,7 +27,7 @@ class apiV0AddI(Resource):
 # Read of CRUD
 class apiV0All(Resource):
     def get(self):
-        all_list = recomm.scores
+        all_list = recomm.load_csv()
         result = json.dumps(all_list.tolist())
         return result
 
@@ -50,7 +57,7 @@ class apiV0DeleteUser(Resource):
 
 class apiV0DeleteItem(Resource):
     def delete(self, item_id):
-        result = model.deleteU(item_id)
+        result = model.deleteI(item_id)
         return {item_id: 'delete' + result}
 
 

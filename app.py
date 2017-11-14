@@ -7,6 +7,9 @@ import controller
 app = Flask(__name__)
 api = Api(app)
 
+# reset the data
+api.add_resource(controller.apiV0ResetData, '/api/v1/put/reset')
+
 # Create of CRUD
 api.add_resource(controller.apiV0AddU, '/api/v1/post/user')
 api.add_resource(controller.apiV0AddI, '/api/v1/post/item')

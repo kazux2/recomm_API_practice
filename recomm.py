@@ -1,9 +1,14 @@
 import numpy as np
 
 # scores = np.loadtxt('sushi3b.5000.10.score', delimiter=' ')
-scores = np.load('scores1.npy')
+scores = np.loadtxt('scores1.csv', delimiter=',')
+
+def load_csv():
+    scores = np.loadtxt('scores1.csv', delimiter=',')
+    return scores
 
 def get_correlation_coefficents(scores, target_user_index):
+
     similarities = []
     target = scores[target_user_index]
 
@@ -58,19 +63,14 @@ def rank_items(scores, similarities, target_user_index):
 
     return sorted(rankings, key=lambda r: r[1], reverse=True)
 
-# target_user_index = 1  # 0番目のユーザ
+# target_user_index = 0  # 0番目のユーザ
 # similarities = get_correlation_coefficents(scores, target_user_index)
-
+#
 # target_item_index = 0  # 3番目のアイテム(エビ)
 # predict_score = predict(scores, similarities, target_user_index, target_item_index)
-
+#
 # rank = rank_items(scores, similarities, target_user_index)
-# np.save("user0recomm", rank)
 #
-# print(type(rank))
 # print(rank)
-#
-# result_json = {'result': rank}
-# print(type(result_json))
-# print(result_json)
+
 
