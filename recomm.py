@@ -1,6 +1,7 @@
 import numpy as np
 
-scores = np.loadtxt('sushi3b.5000.10.score', delimiter=' ')
+# scores = np.loadtxt('sushi3b.5000.10.score', delimiter=' ')
+scores = np.load('scores1.npy')
 
 def get_correlation_coefficents(scores, target_user_index):
     similarities = []
