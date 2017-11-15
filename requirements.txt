@@ -1,5 +1,0 @@
-flask
-flask-restful
-#redis
-numpy
-pandas
