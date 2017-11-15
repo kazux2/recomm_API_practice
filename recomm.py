@@ -1,10 +1,13 @@
 import numpy as np
 
+csv_file = 'data_storage/scores1.csv'
+npy_file = 'data_storage/scores1.npy'
+
 # scores = np.loadtxt('sushi3b.5000.10.score', delimiter=' ')
-scores = np.loadtxt('scores1.csv', delimiter=',')
+scores = np.loadtxt(csv_file, delimiter=',')
 
 def load_csv():
-    scores = np.loadtxt('scores1.csv', delimiter=',')
+    scores = np.loadtxt(csv_file, delimiter=',')
     return scores
 
 def get_correlation_coefficents(scores, target_user_index):

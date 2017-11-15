@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_restful import Resource, Api
-import recomm
 import json
+import recomm
 import model
 
 # Reset the data
@@ -11,7 +11,7 @@ class apiV0ResetData(Resource):
         return {'sushi data was': reset}
 
 
-# Create of CRUD
+# Crud
 class apiV0AddU(Resource):
     def post(self):
         new_user_id = model.createU()
@@ -24,7 +24,7 @@ class apiV0AddI(Resource):
         return {new_item_id: 'added'}
 
 
-# Read of CRUD
+# cRud
 class apiV0All(Resource):
     def get(self):
         all_list = recomm.load_csv()
@@ -35,20 +35,19 @@ class apiV0All(Resource):
 class apiV0Main(Resource):
     def get(self,user_id):
         target_user_index = int(user_id)
-        print(target_user_index)
         similarities = recomm.get_correlation_coefficents(recomm.scores, target_user_index)
         suggestion = recomm.rank_items(recomm.scores, similarities, target_user_index)
         return {user_id: suggestion}
 
 
-# Update of CRUD
+# crUd
 class apiV0Evaluation(Resource):
     def put(self, user_id, item_id, evaluation):
         new_scores = model.update(user_id, item_id, evaluation)
         return {'renewed': new_scores}
 
 
-# Delete of CRUD
+# cruD
 class apiV0DeleteUser(Resource):
     def delete(self, user_id):
         result = model.deleteU(user_id)
