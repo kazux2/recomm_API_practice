@@ -1,10 +1,5 @@
 import numpy as np
 
-"""
-recomm.py heavily refer http://ohke.hateblo.jp/entry/2017/09/22/230000
-"""
-
-
 csv_file = 'data_storage/scores1.csv'
 npy_file = 'data_storage/scores1.npy'
 

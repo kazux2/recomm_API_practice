@@ -3,3 +3,7 @@ __pycache__/*
 sushi3-2016/*
 test_place/*
 
+recomm_spark.py
+Dockerfile
+docker-compose.yml
+.dockerignore
